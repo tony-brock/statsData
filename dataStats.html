@@ -204,7 +204,6 @@ var names = planets.map(getnames);
            var firstpenguin = classroom[0].quizes
             var firstquiz = firstpenguin.map (getGrade); 
 
-            
             var answer = "please complete";
             report("#A2a", firstquiz)
         </script>
@@ -216,6 +215,7 @@ var names = planets.map(getnames);
         <h3>Find the mean of the quiz grades for the first penguin.</h3>
         <script>
             var firstmean = d3.mean(firstquiz)
+            
             var answer = "please complete";
             report("#A2", firstmean)
         </script>
@@ -224,10 +224,11 @@ var names = planets.map(getnames);
     <div id="A3">
         <h3>Create a function to find the mean of the quiz grades for a given penguin.</h3>
         <script>
-            var anymean = function(penguin)
+            var anymean = function(student)
             {
-                return d3.mean(penguin.quizes);
+                d3.mean(student.classroom.quizes)
             }
+            
             var answer = "please complete";
             report("#A3", anymean)
         </script>
@@ -236,7 +237,11 @@ var names = planets.map(getnames);
     <div id="A4">
         <h3>Create an array of the mean quiz score of each penguins. Use one line of "code"</h3>
         <script>
-            var meanquizes = classroom.map(anymean)
+            var meanquizes = classroom.map(function(student)
+                {
+                    return d3.mean(classroom[].quizes)
+                                           })
+        
             var answer = "please complete";
             report("#A4", meanquizes)
         </script>
